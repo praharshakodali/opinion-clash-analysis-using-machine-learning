@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-expand-lg navbar-light">
+        <div class="navbar-header d-flex col">
+            <a class="navbar-brand" href="#">The Relationship<b>Repair Counsellors</b></a>  		
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
+                <span class="navbar-toggler-icon"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+            <ul class="nav navbar-nav">
+                <li style="padding-left: 500px;" class="nav-item"><h4 style="text-align:left;">{{welcome}}</h4></li>
+                <li style="padding-left: 100px;" class="nav-item"><a onclick="alert('you will be logged out');" href={{ url_for('logout')}}>logout</a></li>	
+            </ul>
+        </div>      
+
+</nav>
+<br><br><br><br>
+<div align="center">
+ <h1>If you haven't taken our compatibility test yet,click<a href={{ url_for('verify')}}>here</a></h1>
+ <h1>For report of the compatibility test,click <a href={{url_for('report')}}>here</a></h1>
+</div>
+</body>
+</html>
