@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:black;">
+<nav class="navbar navbar-default navbar-expand-lg navbar-light">
+        <div class="navbar-header d-flex col">
+            <a class="navbar-brand" href="#">The Relationship<b>Repair Counsellors</b></a>  		
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
+                <span class="navbar-toggler-icon"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+            <ul class="nav navbar-nav">
+                <li class="nav-item"><a href={{ url_for('about')}}>About</a></li>	
+                <li style="padding-right: 500px;" class="nav-item"><a href={{url_for('contact')}}>Contact</a></li>
+                <li style="padding-left: 100px;" class="nav-item"><a onclick="alert('you will be logged out');" href={{ url_for('logout')}}>logout</a></li>	
+            </ul>
+        </div>
+    </nav>  
+    <div style="color:white;text-align:center;">{{data}}</div>
+<div >
+<form class="centered-content" action="{{ url_for('predict')}}" method="post"> 
+
+    <div >
+        <p>1.If one of us apologizes when the discussion deteriorates ,the discussion ends :</p>
+            <input type="radio" id="strongly agree" name="ansq1" value=5 onclick="getElementById('q1').value=this.value;" required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq1" value=4 onclick="getElementById('q1').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq1" value=3 onclick="getElementById('q1').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq1" value=2 onclick="getElementById('q1').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq1" value=1 onclick="getElementById('q1').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q1" id="q1">
+    </div>
+    
+    <div >
+        <p>2.I know we can ignore our differences, even if things get hard sometimes:</p>
+            <input type="radio" id="strongly agree" name="ansq2" value=5 onclick="getElementById('q2').value=this.value;" required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq2" value=4 onclick="getElementById('q2').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq2" value=3 onclick="getElementById('q2').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq2" value=2 onclick="getElementById('q2').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq2" value=1 onclick="getElementById('q2').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q2" id="q2">
+    </div>
+    <div >
+        <p>3.When we need it,I can take our discussion with my spouse from beginning and correct it:</p>
+            <input type="radio" id="strongly agree" name="ansq3" value=5 onclick="getElementById('q3').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq3" value=4 onclick="getElementById('q3').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq3" value=3 onclick="getElementById('q3').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq3" value=2 onclick="getElementById('q3').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq3" value=1 onclick="getElementById('q3').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q3" id="q3">
+    </div>
+    <div >
+        <p>4.When I discuss with my spouse, to contact him/her will eventually work:</p>
+            <input type="radio" id="strongly agree" name="ansq4" value=5 onclick="getElementById('q4').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq4" value=4 onclick="getElementById('q4').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq4" value=3 onclick="getElementById('q4').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq4" value=2 onclick="getElementById('q4').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq4" value=1 onclick="getElementById('q4').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q4" id="q4">
+    </div>
+    <div >
+        <p>5.The time I spend with my spouse is special for us:</p>
+            <input type="radio" id="strongly agree" name="ansq5" value=5 onclick="getElementById('q5').value=this.value;">
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq5" value=4 onclick="getElementById('q5').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq5" value=3 onclick="getElementById('q5').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq5" value=2 onclick="getElementById('q5').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq5" value=1 onclick="getElementById('q5').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q5" id="q5">
+    </div>
+    <div >
+        <p>6.We don't have time at home as partners:</p>
+            <input type="radio" id="strongly agree" name="ansq6" value="5" onclick="getElementById('q6').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq6" value="4" onclick="getElementById('q6').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq6" value="3" onclick="getElementById('q6').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq6" value="2" onclick="getElementById('q6').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq6" value="1" onclick="getElementById('q6').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q6" id="q6">
+    </div>
+    <div >
+        <p>7.We are like two strangers who share the same environment at home rather than family:</p>
+            <input type="radio" id="strongly agree" name="ansq7" value="5" onclick="getElementById('q7').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq7" value="4" onclick="getElementById('q7').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq7" value="3" onclick="getElementById('q7').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq7" value="2" onclick="getElementById('q7').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq7" value="1" onclick="getElementById('q7').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q7" id="q7">
+    </div>
+    <div >
+        <p>8.I enjoy our holidays with my spouse:</p>
+            <input type="radio" id="strongly agree" name="ansq8" value="5" onclick="getElementById('q8').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq8" value="4" onclick="getElementById('q8').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq8" value="3" onclick="getElementById('q8').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq8" value="2" onclick="getElementById('q8').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq8" value="1" onclick="getElementById('q8').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q8" id="q8">
+    </div>
+    <div >
+        <p>9.I enjoy traveling with my spouse:</p>
+            <input type="radio" id="strongly agree" name="ansq9" value="5" onclick="getElementById('q9').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq9" value="4" onclick="getElementById('q9').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq9" value="3" onclick="getElementById('q9').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq9" value="2" onclick="getElementById('q9').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq9" value="1" onclick="getElementById('q9').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q9" id="q9">
+    </div>
+    <div >
+        <p>10.Most of our goals are common to my spouse:</p>
+            <input type="radio" id="strongly agree" name="ansq10" value="5" onclick="getElementById('q10').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq10" value="4" onclick="getElementById('q10').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq10" value="3" onclick="getElementById('q10').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq10" value="2" onclick="getElementById('q10').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq10" value="1" onclick="getElementById('q10').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q10" id="q10">
+    </div>
+    <div >
+        <p>11.I think that one day in the future, when I look back, I see that my spouse and I have been in harmony with each other.:</p>
+            <input type="radio" id="strongly agree" name="ansq11" value="5" onclick="getElementById('q11').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq11" value="4" onclick="getElementById('q11').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq11" value="3" onclick="getElementById('q11').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq11" value="2" onclick="getElementById('q11').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq11" value="1" onclick="getElementById('q11').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q11" id="q11">
+    </div>
+    <div >
+        <p>12.My spouse and I have similar values in terms of personal freedom:</p>
+            <input type="radio" id="strongly agree" name="ansq12" value="5" onclick="getElementById('q12').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq12" value="4" onclick="getElementById('q12').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq12" value="3" onclick="getElementById('q12').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq12" value="2" onclick="getElementById('q12').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq12" value="1" onclick="getElementById('q12').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q12" id="q12">
+    </div>
+    <div >
+        <p>13.My spouse and I have similar sense of entertainment:</p>
+            <input type="radio" id="strongly agree" name="ansq13" value="5" onclick="getElementById('q13').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq13" value="4" onclick="getElementById('q13').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq13" value="3" onclick="getElementById('q13').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq13" value="2" onclick="getElementById('q13').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq13" value="1" onclick="getElementById('q13').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q13" id="q13">
+    </div>
+    <div >
+        <p>14.Most of our goals for people (children, friends, etc.) are the same:</p>
+            <input type="radio" id="strongly agree" name="ansq14" value="5" onclick="getElementById('q14').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq14" value="4" onclick="getElementById('q14').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq14" value="3" onclick="getElementById('q14').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq14" value="2" onclick="getElementById('q14').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq14" value="1" onclick="getElementById('q14').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q14" id="q14">
+    </div>
+    <div >
+        <p>15.My dreams with my spouse are similar and harmonious:</p>
+            <input type="radio" id="strongly agree" name="ansq15" value="5" onclick="getElementById('q15').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq15" value="4" onclick="getElementById('q15').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq15" value="3" onclick="getElementById('q15').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq15" value="2" onclick="getElementById('q15').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq15" value="1" onclick="getElementById('q15').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q15" id="q15">
+    </div>
+    <div >
+        <p>16.I'm compatible with my spouse about what love should be:</p>
+            <input type="radio" id="strongly agree" name="ansq16" value="5" onclick="getElementById('q16').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq16" value="4" onclick="getElementById('q16').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq16" value="3" onclick="getElementById('q16').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq16" value="2" onclick="getElementById('q16').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq16" value="1" onclick="getElementById('q16').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q16" id="q16">
+    </div>
+    <div >
+        <p>17.We share the same views about being happy in our life with my spouse:</p>
+            <input type="radio" id="strongly agree" name="ansq17" value="5" onclick="getElementById('q17').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq17" value="4" onclick="getElementById('q17').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq17" value="3" onclick="getElementById('q17').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq17" value="2" onclick="getElementById('q17').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq17" value="1" onclick="getElementById('q17').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q17" id="q17">
+    </div>
+    <div >
+        <p>18.My spouse and I have similar ideas about how marriage should be:</p>
+            <input type="radio" id="strongly agree" name="ansq18" value="5" onclick="getElementById('q18').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq18" value="4" onclick="getElementById('q18').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq18" value="3" onclick="getElementById('q18').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq18" value="2" onclick="getElementById('q18').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq18" value="1" onclick="getElementById('q18').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q18" id="q18">
+    </div>
+    <div >
+        <p>19.My spouse and I have similar ideas about how roles should be in marriage:</p>
+            <input type="radio" id="strongly agree" name="ansq19" value="5" onclick="getElementById('q19').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq19" value="4" onclick="getElementById('q19').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq19" value="3" onclick="getElementById('q19').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq19" value="2" onclick="getElementById('q19').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq19" value="1" onclick="getElementById('q19').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q19" id="q19">
+    </div>
+    <div >
+        <p>20.My spouse and I have similar values in trust:</p>
+            <input type="radio" id="strongly agree" name="ansq20" value="5" onclick="getElementById('q20').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq20" value="4" onclick="getElementById('q20').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq20" value="3" onclick="getElementById('q20').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq20" value="2" onclick="getElementById('q20').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq20" value="1" onclick="getElementById('q20').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q20" id="q20">
+    </div>
+    <div >
+        <p>21.I know exactly what my spouse likes:</p>
+            <input type="radio" id="strongly agree" name="ansq21" value="5" onclick="getElementById('q21').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq21" value="4" onclick="getElementById('q21').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq21" value="3" onclick="getElementById('q21').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq21" value="2" onclick="getElementById('q21').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq21" value="1" onclick="getElementById('q21').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q21" id="q21">
+    </div>
+    <div >
+        <p>22.I know how my spouse wants to be taken care of when she/he sick:</p>
+            <input type="radio" id="strongly agree" name="ansq22" value="5" onclick="getElementById('q22').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq22" value="4" onclick="getElementById('q22').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq22" value="3" onclick="getElementById('q22').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq22" value="2" onclick="getElementById('q22').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq22" value="1" onclick="getElementById('q22').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q22" id="q22">
+    </div>
+    <div >
+        <p>23. I know my spouse's favorite food:</p>
+            <input type="radio" id="strongly agree" name="ansq23" value="5" onclick="getElementById('q23').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq23" value="4" onclick="getElementById('q23').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq23" value="3" onclick="getElementById('q23').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq23" value="2" onclick="getElementById('q23').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq23" value="1" onclick="getElementById('q23').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q23" id="q23">
+    </div>
+    <div >
+        <p>24. I can tell you what kind of stress my spouse is facing in her/his life:</p>
+            <input type="radio" id="strongly agree" name="ansq24" value="5" onclick="getElementById('q24').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq24" value="4" onclick="getElementById('q24').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq24" value="3" onclick="getElementById('q24').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq24" value="2" onclick="getElementById('q24').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq24" value="1" onclick="getElementById('q24').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q24" id="q24">
+    </div>
+    <div >
+        <p>25. I have knowledge of my spouse's inner world:</p>
+            <input type="radio" id="strongly agree" name="ansq25" value="5" onclick="getElementById('q25').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq25" value="4" onclick="getElementById('q25').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="good" name="ansq25" value="3" onclick="getElementById('q25').value=this.value;">
+                <label for="good">good</label>
+            <input type="radio" id="somewhat disagree" name="ansq25" value="2" onclick="getElementById('q25').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq25" value="1" onclick="getElementById('q25').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q25" id="q25">
+    </div>
+    <div >
+        <p>26.I know my spouse's basic anxieties:</p>
+            <input type="radio" id="strongly agree" name="ansq26" value="5" onclick="getElementById('q26').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq26" value="4" onclick="getElementById('q26').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq26" value="3" onclick="getElementById('q26').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="fair" name="ansq26" value="2" onclick="getElementById('q26').value=this.value;">
+                <label for="fair">fair</label>
+            <input type="radio" id="strongly disagree" name="ansq26" value="1" onclick="getElementById('q26').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q26" id="q26">
+    </div>
+    <div >
+        <p>27.I know what my spouse's current sources of stress are:</p>
+            <input type="radio" id="strongly agree" name="ansq27" value="5" onclick="getElementById('q27').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq27" value="4" onclick="getElementById('q27').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq27" value="3" onclick="getElementById('q27').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq27" value="2" onclick="getElementById('q27').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq27" value="1" onclick="getElementById('q27').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q27" id="q27">
+    </div>
+    <div >
+        <p>28.I know my spouse's hopes and wishes:</p>
+            <input type="radio" id="strongly agree" name="ansq28" value="5" onclick="getElementById('q28').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq28" value="4" onclick="getElementById('q28').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq28" value="3" onclick="getElementById('q28').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq28" value="2" onclick="getElementById('q28').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq28" value="1" onclick="getElementById('q28').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q28" id="q28">
+    </div>
+    <div >
+        <p>29.I know my spouse very well:</p>
+            <input type="radio" id="strongly agree" name="ansq29" value="5" onclick="getElementById('q29').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq29" value="4" onclick="getElementById('q29').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq29" value="3" onclick="getElementById('q29').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq29" value="2" onclick="getElementById('q29').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq29" value="1" onclick="getElementById('q29').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q29" id="q29">
+    </div>
+    <div >
+        <p>30.I know my spouse's friends and their social relationships:</p>
+            <input type="radio" id="strongly agree" name="ansq30" value="5" onclick="getElementById('q30').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq30" value="4" onclick="getElementById('q30').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq30" value="3" onclick="getElementById('q30').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq30" value="2" onclick="getElementById('q30').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq30" value="1" onclick="getElementById('q30').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q30" id="q30">
+    </div>
+    <div >
+        <p>31.I feel aggressive when I argue with my spouse:</p>
+            <input type="radio" id="strongly agree" name="ansq31" value="5" onclick="getElementById('q31').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq31" value="4" onclick="getElementById('q31').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq31" value="3" onclick="getElementById('q31').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq31" value="2" onclick="getElementById('q31').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq31" value="1" onclick="getElementById('q31').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q31" id="q31">
+    </div>
+    <div >
+        <p>32.When discussing with my spouse, I usually use expressions such as ‘you always’ or ‘you never’:</p>
+            <input type="radio" id="strongly agree" name="ansq32" value="5" onclick="getElementById('q32').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq32" value="4" onclick="getElementById('q32').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq32" value="3" onclick="getElementById('q32').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq32" value="2" onclick="getElementById('q32').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq32" value="1" onclick="getElementById('q32').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q32" id="q32">
+    </div>
+    <div >
+        <p>33.I can use negative statements about my spouse's personality during our discussions:</p>
+            <input type="radio" id="strongly agree" name="ansq33" value="5" onclick="getElementById('q33').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq33" value="4" onclick="getElementById('q33').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="good" name="ansq33" value="3" onclick="getElementById('q33').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq33" value="2" onclick="getElementById('q33').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq33" value="1" onclick="getElementById('q33').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q33" id="q33">
+    </div>
+    <div >
+        <p>34.I can use offensive expressions during our discussions:</p>
+            <input type="radio" id="strongly agree" name="ansq34" value="5" onclick="getElementById('q34').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq34" value="4" onclick="getElementById('q34').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq34" value="3" onclick="getElementById('q34').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq34" value="2" onclick="getElementById('q34').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq34" value="1" onclick="getElementById('q34').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q34" id="q34">
+    </div>
+    <div >
+        <p>35.I can insult my spouse during our discussions:</p>
+            <input type="radio" id="strongly agree" name="ansq35" value="5" onclick="getElementById('q35').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq35" value="4" onclick="getElementById('q35').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq35" value="3" onclick="getElementById('q35').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq35" value="2" onclick="getElementById('q35').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq35" value="1" onclick="getElementById('q35').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q35" id="q35">
+    </div>
+    <div >
+        <p>36. I can be humiliating whie having discussions:</p>
+            <input type="radio" id="strongly agree" name="ansq36" value="5" onclick="getElementById('q36').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq36" value="4" onclick="getElementById('q36').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq36" value="3" onclick="getElementById('q36').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq36" value="2" onclick="getElementById('q36').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq36" value="1" onclick="getElementById('q36').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q36" id="q36">
+    </div>
+    <div >
+        <p>37.My discussion with my spouse is not calm:</p>
+            <input type="radio" id="strongly agree" name="ansq37" value="5" onclick="getElementById('q37').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq37" value="4" onclick="getElementById('q37').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq37" value="3" onclick="getElementById('q37').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq37" value="2" onclick="getElementById('q37').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq37" value="1" onclick="getElementById('q37').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q37" id="q37">
+    </div>
+    <div >
+        <p>38.I hate my spouse's way of opening a subject:</p>
+            <input type="radio" id="strongly agree" name="ansq38" value="5" onclick="getElementById('q38').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq38" value="4" onclick="getElementById('q38').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq38" value="3" onclick="getElementById('q38').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq38" value="2" onclick="getElementById('q38').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq38" value="1" onclick="getElementById('q38').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q38" id="q38">
+    </div>
+    <div >
+        <p>39.Our discussions often occur suddenly:</p>
+            <input type="radio" id="strongly agree" name="ansq39" value="5" onclick="getElementById('q39').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq39" value="4" onclick="getElementById('q39').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq39" value="3" onclick="getElementById('q39').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq39" value="2" onclick="getElementById('q39').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq39" value="1" onclick="getElementById('q39').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q39" id="q39">
+    </div>
+    <div >
+        <p>40.We're just starting a discussion before I know what's going on:</p>
+            <input type="radio" id="strongly agree" name="ansq40" value="5" onclick="getElementById('q40').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq40" value="4" onclick="getElementById('q40').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq40" value="3" onclick="getElementById('q40').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq40" value="2" onclick="getElementById('q40').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq40" value="1" onclick="getElementById('q40').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q40" id="q40">
+    </div>
+    <div >
+        <p>41.When I talk to my spouse about something, my calm suddenly breaks:</p>
+            <input type="radio" id="strongly agree" name="ansq41" value="5" onclick="getElementById('q41').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq41" value="4" onclick="getElementById('q41').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq41" value="3" onclick="getElementById('q41').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq41" value="2" onclick="getElementById('q41').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq41" value="1" onclick="getElementById('q41').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q41" id="q41">
+    </div>
+    <div >
+        <p>42.When I argue with my spouse, ı only go out and I don't say a word:</p>
+            <input type="radio" id="strongly agree" name="ansq42" value="5" onclick="getElementById('q42').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq42" value="4" onclick="getElementById('q42').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq42" value="3" onclick="getElementById('q42').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq42" value="2" onclick="getElementById('q42').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq42" value="1" onclick="getElementById('q42').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q42" id="q42">
+    </div>
+    <div >
+        <p>43.I mostly stay silent to calm the environment a little bit:</p>
+            <input type="radio" id="strongly agree" name="ansq43" value="5" onclick="getElementById('q43').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq43" value="4" onclick="getElementById('q43').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq43" value="3" onclick="getElementById('q43').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq43" value="2" onclick="getElementById('q43').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq43" value="1" onclick="getElementById('q43').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q43" id="q43">
+    </div>
+    <div >
+        <p>44.Sometimes I think it's good for me to leave home for a while:</p>
+            <input type="radio" id="strongly agree" name="ansq44" value="5" onclick="getElementById('q44').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq44" value="4" onclick="getElementById('q44').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq44" value="3" onclick="getElementById('q44').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq44" value="2" onclick="getElementById('q44').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq44" value="1" onclick="getElementById('q44').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q44" id="q44">
+    </div>
+    <div >
+        <p>45.I'd rather stay silent than discuss with my spouse:</p>
+            <input type="radio" id="strongly agree" name="ansq45" value="5" onclick="getElementById('q45').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq45" value="4" onclick="getElementById('q45').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq45" value="3" onclick="getElementById('q45').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq45" value="2" onclick="getElementById('q45').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq45" value="1" onclick="getElementById('q45').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q45" id="q45">
+    </div>
+    <div >
+        <p>46.Even if I'm right in the discussion, I stay silent to hurt my spouse:</p>
+            <input type="radio" id="strongly agree" name="ansq46" value="5" onclick="getElementById('q46').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq46" value="4" onclick="getElementById('q46').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq46" value="3" onclick="getElementById('q46').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq46" value="2" onclick="getElementById('q46').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq46" value="1" onclick="getElementById('q46').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q46" id="q46">
+    </div>
+    <div >
+        <p>47.When I discuss with my spouse, I stay silent because I am afraid of not being able to control my anger:</p>
+            <input type="radio" id="strongly agree" name="ansq47" value="5" onclick="getElementById('q47').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq47" value="4" onclick="getElementById('q47').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq47" value="3" onclick="getElementById('q47').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq47" value="2" onclick="getElementById('q47').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq47" value="1" onclick="getElementById('q47').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q47" id="q47">
+    </div>
+    <div >
+        <p>48.I feel right in our discussions:</p>
+            <input type="radio" id="strongly agree" name="ansq48" value="5" onclick="getElementById('q48').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq48" value="4" onclick="getElementById('q48').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq48" value="3" onclick="getElementById('q48').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq48" value="2" onclick="getElementById('q48').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq48" value="1" onclick="getElementById('q48').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q48" id="q48">
+    </div>
+    <div >
+        <p>49.I have nothing to do with what I've been accused of:</p>
+            <input type="radio" id="strongly agree" name="ansq49" value="5" onclick="getElementById('q49').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq49" value="4" onclick="getElementById('q49').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq49" value="3" onclick="getElementById('q49').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq49" value="2" onclick="getElementById('q49').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq49" value="1" onclick="getElementById('q49').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q49" id="q49">
+    </div>
+    <div >
+        <p>50.I'm not actually the one who's guilty about what I'm accused of:</p>
+            <input type="radio" id="strongly agree" name="ansq50" value="5" onclick="getElementById('q50').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq50" value="4" onclick="getElementById('q50').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq50" value="3" onclick="getElementById('q50').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq50" value="2" onclick="getElementById('q50').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq50" value="1" onclick="getElementById('q50').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q50" id="q50">
+    </div>
+    <div >
+        <p>51. I'm not the one who's wrong about problems at home:</p>
+            <input type="radio" id="strongly agree" name="ansq51" value="5" onclick="getElementById('q51').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq51" value="4" onclick="getElementById('q51').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq51" value="3" onclick="getElementById('q51').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq51" value="2" onclick="getElementById('q51').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq51" value="1" onclick="getElementById('q51').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q51" id="q51">
+    </div>
+    <div >
+        <p>52. I wouldn't hesitate to tell my spouse about her/his inadequacy:</p>
+            <input type="radio" id="strongly agree" name="ansq52" value="5" onclick="getElementById('q52').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq52" value="4" onclick="getElementById('q52').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq52" value="3" onclick="getElementById('q52').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq52" value="2" onclick="getElementById('q52').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq52" value="1" onclick="getElementById('q52').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q52" id="q52">
+    </div>
+    <div >
+        <p>53.When I discuss, I remind my spouse of her/his inadequacy:</p>
+            <input type="radio" id="strongly agree" name="ansq53" value="5" onclick="getElementById('q53').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq53" value="4" onclick="getElementById('q53').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral" name="ansq53" value="3" onclick="getElementById('q53').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq53" value="2" onclick="getElementById('q53').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq53" value="1" onclick="getElementById('q53').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q53" id="q53">
+    </div>
+    <div >
+        <p>54.I'm not afraid to tell my spouse about her/his incompetence:</p>
+            <input type="radio" id="strongly agree" name="ansq54" value="5" onclick="getElementById('q54').value=this.value;"required>
+                <label for="strongly agree">strongly agree</label>
+            <input type="radio" id="somewhat agree" name="ansq54" value="4" onclick="getElementById('q54').value=this.value;">
+                <label for="somewhat agree">somewhat agree</label>
+            <input type="radio" id="neutral " name="ansq54" value="3" onclick="getElementById('q54').value=this.value;">
+                <label for="neutral">neutral</label>
+            <input type="radio" id="somewhat disagree" name="ansq54" value="2" onclick="getElementById('q54').value=this.value;">
+                <label for="somewhat disagree">somewhat disagree</label>
+            <input type="radio" id="strongly disagree" name="ansq54" value="1" onclick="getElementById('q54').value=this.value;">
+                <label for="strongly disagree">strongly disagree</label>
+            
+                <input type="hidden" name="q54" id="q54">
+    </div>
+    
+
+</div>
+            <div class="button">
+                <button type="submit" class="btn btn-primary btn-block btn-large" >predict </button>
+                
+            </div>
+</form>
+<br>
+<br>
+
+
+
+</body>
+</script>
+</html>
